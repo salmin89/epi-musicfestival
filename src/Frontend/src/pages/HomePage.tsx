@@ -2,10 +2,14 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { NavLink } from 'react-router-dom';
 
-export default class HomePage extends React.Component {
+export default class HomePage extends React.Component<any, any> {
 
   constructor(props: any) {
     super(props);
+
+    this.state = {
+      name: ""
+    }
 
     if (fetch) {
       fetch("?expand=*", {
@@ -14,7 +18,7 @@ export default class HomePage extends React.Component {
         }
       })
         .then(response => response.json())
-        .then(json => console.log(json));
+        .then(json => this.setState({name: json.name}));
     }
 
   }
@@ -35,7 +39,7 @@ export default class HomePage extends React.Component {
             textShadow: "0 0 5px lightgray"
           }}
         >
-          Whatasdsad is Home is 🔥🔥
+          This is { this.state.name } 🔥🔥
         </h1>
       </React.Fragment>
     );
