@@ -8,6 +8,7 @@ namespace MusicFestival.Template
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            ReactConfig.Configure();
         }
 
         protected override void RegisterRoutes(RouteCollection routes)

@@ -1,7 +1,7 @@
 ﻿@using EPiServer.Editor
 @using EPiServer.Framework.Web.Mvc.Html
 
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 <html data-application-path=@Url.Content("~")>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -16,5 +16,30 @@
     @Html.RenderEPiServerQuickNavigator()
     <script src="~/Assets/bundled/main.bundle.js"></script>
     @Html.RequiredClientResources("Footer")
+</body>
+</html>*@
+
+<!DOCTYPE html>
+<html data-application-path=@Url.Content("~")>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+    <link href="~/Assets/bundled/main.bundle.css" rel="stylesheet" />
+
+    <style>
+        a.active {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="Page" id="App">
+        @RenderBody()
+    </div>
+    @Html.RenderEPiServerQuickNavigator()
+    <script src="/Scripts/dist/client.react.js"></script>
+    @Html.RequiredClientResources("Footer")
+    @Html.ReactInitJavaScript()
 </body>
 </html>

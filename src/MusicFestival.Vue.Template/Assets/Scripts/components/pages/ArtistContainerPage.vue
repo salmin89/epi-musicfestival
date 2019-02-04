@@ -58,7 +58,6 @@ export default {
     methods: {
         updateData() {
             const parameters = {};
-
             return api.getChildren(this.url, parameters)
                 .then(success => {
                     // sort response alphabetically

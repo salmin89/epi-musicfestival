@@ -6,6 +6,16 @@
 import axios from 'axios';
 
 const call = (method, url, baseURL, parameters, headers) => {
+
+    console.log(
+        {
+            method: method,
+            baseURL: baseURL,
+            url: url,
+            params: parameters,
+            headers: Object.assign({}, headers)
+        });
+
     return axios({
         method: method,
         baseURL: baseURL,
